@@ -14,6 +14,7 @@ router.route('/login').post(loginUser)
 // Apply verifyUser to all routes below
 router.use(verifyUser);
 router.route('/logout').post(logoutUser)
+router.route("/refresh-token").post(refreshAccessToken);
 
 // pdf routes
 router.route("/pdfs").get(getPDFs);
