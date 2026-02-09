@@ -4,7 +4,9 @@ import ApiResponse from "../utils/ApiResponse.js";
 import {asyncHandler} from '../utils/asyncHandler.js'
 import mongoose from "mongoose"
 
-const genrateAccessTokenandrefreshToken= async (userid)=>{
+//generate-AccessToken-And-RefreshToken
+
+const generateAccessTokenAndRefreshToken= async (userid)=>{
     try {
         const user = await User.findById(userid)
         const accessToken = await user.genrateAccessToken();
@@ -102,7 +104,7 @@ export const loginUser = asyncHandler(async(req,res)=>{
         throw new ApiError(401,"invalid crendentials")
     }
 
-    const {accessToken,refreshToken} = await genrateAccessTokenandrefreshToken(existedUser._id);
+    const {accessToken,refreshToken} = await generateAccessTokenAndRefreshToken(existedUser._id);
 
     // console.log(accessToken);
 
