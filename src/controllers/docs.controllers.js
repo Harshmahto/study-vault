@@ -146,23 +146,16 @@ const deletePDF = asyncHandler(async (req, res) => {
     throw new ApiError(404, "PDF not found");
   }
 
-  const cloudinaryPublicId = extractPublicIdFromUrl(pdf.cloudinaryUrl);
-  await deleteFromCloudinary(cloudinaryPublicId);
+  // Delete from Cloudinary using stored publicId
+  await deleteFromCloudinary(pdf.cloudinaryPublicId);
 
+  // Delete from database
   await Docs.findByIdAndDelete(id);
 
   return res
     .status(200)
     .json(new ApiResponse(200, "PDF deleted successfully", null));
 });
-
-// Helper function to extract public_id from Cloudinary URL
-const extractPublicIdFromUrl = (url) => {
-  const parts = url.split('/');
-  const filename = parts[parts.length - 1];
-  const publicId = filename.split('.')[0];
-  return publicId;
-};
 
 export {
   uploadPDF,
