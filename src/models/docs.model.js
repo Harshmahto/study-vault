@@ -66,6 +66,11 @@ const docsSchema = new Schema(
       type: String,
       required: [true, "Cloudinary URL is required"]
     },
+
+    cloudinaryPublicId: {
+        type: String,
+        required: [true, "Cloudinary Public ID is required"]
+    },
     
     uploadedBy: {
       type: Schema.Types.ObjectId,
