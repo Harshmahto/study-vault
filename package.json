@@ -6,7 +6,8 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "swagger": "node swagger.js"
   },
   "author": "harsh",
   "license": "ISC",
@@ -20,7 +21,10 @@
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.5",
-    "multer": "^2.0.2"
+    "multer": "^2.0.2",
+    "postman-to-openapi": "^3.0.1",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
