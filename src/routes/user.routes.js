@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { loginUser, logoutUser, registerUser } from "../controllers/user.controllers.js";
+import { loginUser, logoutUser, registerUser,refreshAccessToken } from "../controllers/user.controllers.js";
 import verifyUser from "../middleware/auth.middleware.js";
 
 import { getPDFs,getPDFById,incrementDownload } from "../controllers/docs.controllers.js";

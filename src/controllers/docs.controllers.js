@@ -16,6 +16,8 @@ const uploadPDF = asyncHandler(async (req, res) => {
     throw new ApiError(400, "PDF file is required");
   }
 
+  console.log(req.file)
+
   if (req.file.mimetype !== "application/pdf") {
     throw new ApiError(400, "Only PDF files are allowed");
   }
@@ -35,6 +37,7 @@ const uploadPDF = asyncHandler(async (req, res) => {
     subject: subject || undefined,
     description: description || undefined,
     cloudinaryUrl: cloudinaryResponse.secure_url,
+    cloudinaryPublicId:cloudinaryResponse.public_id,
     uploadedBy: req.user._id
   });
 
